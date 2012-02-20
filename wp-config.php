@@ -16,16 +16,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'cellar27_co_uk');
+if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
+  include( dirname( __FILE__ ) . '/local-config.php' );
+  define( 'WP_LOCAL_DEV', true ); // We'll talk about this later
+} else {
+	define('DB_NAME', 'cellar27_co_uk');
+	define('DB_USER', 'condiment-29138');
+	define('DB_PASSWORD', 'L1M3p1ckl3!');
+	define('DB_HOST', 'mysql-shared-02.phpfog.com');
+}
 
-/** MySQL database username */
-define('DB_USER', 'condiment-29138');
-
-/** MySQL database password */
-define('DB_PASSWORD', 'L1M3p1ckl3!');
-
-/** MySQL hostname */
-define('DB_HOST', 'mysql-shared-02.phpfog.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
